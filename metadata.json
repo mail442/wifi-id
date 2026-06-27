@@ -1,0 +1,8 @@
+{
+  "name": "Remix: BUMDes Artha Kencana - Toko Telur Online",
+  "description": "Platform jualan telur online resmi BUMDes Artha Kencana, Desa Petuguran. Memudahkan warga memesan telur ayam, bebek, dan asin dengan layanan antar ke rumah.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

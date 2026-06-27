@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Katalog jenis telur yang tersedia",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "unit": { "type": "string", "enum": ["kg", "butir"] },
+        "stock": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "category": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "price", "unit", "stock"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Pesanan telur dari warga",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "address": { "type": "string" },
+        "dusun": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "items": { "type": "array" },
+        "totalAmount": { "type": "number" },
+        "paymentMethod": { "type": "string", "enum": ["COD", "Transfer"] },
+        "status": { "type": "string", "enum": ["Pending", "Dikirim", "Selesai", "Batal"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "address", "dusun", "whatsapp", "items", "totalAmount", "paymentMethod"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Data administrator sistem (Pengurus BUMDes)",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "products": {
+      "schema": "Product",
+      "description": "Koleksi produk telur"
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Koleksi pesanan warga"
+    },
+    "admins": {
+      "schema": "Admin",
+      "description": "Whitelist UID admin"
+    }
+  }
+}
