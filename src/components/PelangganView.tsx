@@ -9,20 +9,15 @@ import {
   Wifi, 
   X,
   Check,
-  AlertCircle,
-  MessageSquare,
-  FileSpreadsheet,
-  Upload,
-  Download,
-  Globe
-} from "lucide-react";
+  import { Check, X, Search, Plus, Edit2, Trash2, Eye, Download, FileSpreadsheet, RefreshCw, AlertCircle, FileText, Upload, Globe } from "lucide-react";
+// @ts-ignore
+import { utils, writeFile } from "xlsx";
+// @ts-ignore
+import * as XLSX from "xlsx";
 import { motion, AnimatePresence } from "motion/react";
 import { FixedSizeList as List } from "react-window";
 import { Member, WifiPackage } from "../types";
-import { 
-  formatRupiah, 
-} from "../utils";
-import * as XLSX from "xlsx";
+import { formatRupiah } from "../utils";
 
 interface PelangganViewProps {
   members: Member[];
