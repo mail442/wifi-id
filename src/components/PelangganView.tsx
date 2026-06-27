@@ -1,15 +1,17 @@
-import React, { useState, useMemo } from "react";
-import { 
-  ChevronLeft, 
-  Search, 
-  UserPlus, 
-  Edit2, 
-  Trash2, 
-  Phone, 
-  Wifi, 
-  X,
-  Check,
-  import { Check, X, Search, Plus, Edit2, Trash2, Eye, Download, FileSpreadsheet, RefreshCw, AlertCircle, FileText, Upload, Globe } from "lucide-react";
+[12.51, 27/6/2026] ISMAIL: import React, { useState, useMemo } from "react";
+import { Check, X, Search, Plus, Edit2, Trash2, Eye, Download, FileSpreadsheet, RefreshCw, AlertCircle, FileText, Upload, Globe } from "lucide-react";
+// @ts-ignore
+import { utils, writeFile } from "xlsx";
+// @ts-ignore
+import * as XLSX from "xlsx";
+// @ts-ignore
+import { motion, AnimatePresence } from "motion/react";
+import { FixedSizeList as List } from "react-window";
+import { Member, WifiPackage } from "../types";
+import { formatRupiah } from "../utils";
+[13.01, 27/6/2026] ISMAIL: import React, { useState, useMemo } from "react";
+import { Check, X, Search, Plus, Edit2, Trash2, Eye, Download, FileSpreadsheet, RefreshCw, AlertCircle, FileText, Upload, Globe } from "lucide-react";
+
 // @ts-ignore
 import { utils, writeFile } from "xlsx";
 // @ts-ignore
@@ -22,17 +24,11 @@ import { formatRupiah } from "../utils";
 
 interface PelangganViewProps {
   members: Member[];
-  packages: WifiPackage[];
-  onBack: () => void;
-  onAddMember: (name: string, phone: string, packageId: string, dueDateDay?: number, routerIp?: string) => void;
-  onEditMember: (memberId: string, name: string, phone: string, packageId: string, dueDateDay?: number, routerIp?: string) => void;
+  onAddMember: (name: string, phone: string, packageId: string, dueDateDay: number, routerIp: string) => void;
+  onEditMember: (memberId: string, name: string, phone: string, packageId: string, dueDateDay: number, routerIp: string) => void;
   onDeleteMember: (memberId: string) => void;
-  onImportMembers?: (newMembers: Array<{ name: string; phone?: string; packageId?: string; dueDateDay?: number }>) => void;
+  onBack: () => void;
 }
-
-export const PelangganView: React.FC<PelangganViewProps> = ({
-  members,
-  packages,
   onBack,
   onAddMember,
   onEditMember,
