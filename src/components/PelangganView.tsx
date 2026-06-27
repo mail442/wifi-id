@@ -14,6 +14,7 @@ import {
 import { utils, writeFile } from "xlsx";
 // @ts-ignore
 import * as XLSX from "xlsx";
+// @ts-ignore
 import { motion, AnimatePresence } from "motion/react";
 import { FixedSizeList as List } from "react-window";
 import { Member, WifiPackage } from "../types";
